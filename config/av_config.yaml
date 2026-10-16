@@ -1,0 +1,52 @@
+﻿detection:
+  model: "yolov8n.pt"
+  confidence: 0.35
+  classes:
+    - person
+    - bicycle
+    - car
+    - motorcycle
+    - bus
+    - truck
+    - dog
+    - chair
+    - bench
+    - traffic light
+    - stop sign
+
+motion:
+  ema_alpha: 0.20
+  max_history: 30
+  max_missing_frames: 15
+
+depth:
+  enabled: true
+  model: "MiDaS_small"
+  depth_stride: 1
+  disparity_scale: 350.0
+  disparity_offset: 0.5
+
+spatial:
+  hfov_deg: 70.0
+  vfov_deg: 45.0
+  corridor_ratio: 0.30
+  camera_height_m: 1.35
+
+audio:
+  enabled: true
+  mode: "speech"          # "speech", "earcon", or "hybrid"
+  speech_rate: 175        # Words per minute (SAPI5 default is ~150-200)
+  volume: 0.90            # 0.0 to 1.0
+  alert_cooldown_s: 3.5   # Anti-spam cooldown per obstacle
+  clear_pathway_interval_s: 6.0
+  mock_mode: false        # Set true for headless/CI test environments
+
+visualization:
+  draw_trajectory: true
+  draw_velocity: true
+  draw_centroid: true
+  draw_clock_bearing: true
+  draw_distance: true
+  draw_corridor: true
+  box_thickness: 2
+  font_scale: 0.50
